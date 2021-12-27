@@ -1,0 +1,20 @@
+digraph {
+
+  auckland -> hamilton [label="car"]
+  hamilton -> raglan [label="car"]
+  valmont -> saarbruecken [label="car"]
+  valmont -> metz [label="car"]
+
+  metz -> frankfurt [label="train"]
+  saarbruecken -> frankfurt [label="train"]
+  metz -> paris [label="train"]
+  saarbruecken -> paris [label="train"]
+
+  frankfurt -> bangkok [label="plane"]
+  frankfurt -> singapore [label="plane"]
+  paris -> losAngeles [label="plane"]
+  bangkok -> auckland [label="plane"]
+  singapore -> auckland [label="plane"]
+  losAngeles -> auckland [label="plane"]
+
+}
