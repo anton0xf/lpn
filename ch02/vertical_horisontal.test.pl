@@ -2,7 +2,6 @@
 :- begin_tests(lists).
 :- ensure_loaded(vertical_horisontal).
 
-
 test(vertical_yes)
 :- vertical(line(point(1,1),point(1,3))).
 
