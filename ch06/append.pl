@@ -65,19 +65,27 @@ suffix([X | XS], L) :- my_append(_, [X | XS], L).
 %@ S = [c] ;
 %@ false.
 
-sublist(S, L) :- prefix(P, L), suffix(S, P).
+%% sublist(S, L) :- prefix(P, L), suffix(S, P).
+
+sublist([], _).
+sublist([H | XS], [H | YS] ) :- prefix(XS, YS).
+sublist([X | XS], [_ | YS] ) :- sublist([X | XS], YS).
 
 %?- sublist(XS, [1, 2, 3]).
 %@ XS = [] ;
-%@ XS = [] ;
 %@ XS = [1] ;
-%@ XS = [] ;
 %@ XS = [1, 2] ;
-%@ XS = [2] ;
-%@ XS = [] ;
 %@ XS = [1, 2, 3] ;
+%@ XS = [2] ;
 %@ XS = [2, 3] ;
 %@ XS = [3] ;
+%@ false.
+
+%?- sublist([2], [1, 2, 3]).
+%@ true ;
+%@ false.
+
+%?- sublist([1, 3], [1, 2, 3]).
 %@ false.
 
 :- begin_tests(derivatives).
